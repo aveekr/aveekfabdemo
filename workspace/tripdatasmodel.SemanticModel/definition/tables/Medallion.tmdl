@@ -1,0 +1,44 @@
+table Medallion
+	lineageTag: 9f5a44de-7fe6-442f-aed9-16e387282456
+	sourceLineageTag: [dbo].[Medallion]
+
+	column MedallionID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 212377fd-8ac5-49e5-b240-0d32be8c797e
+		sourceLineageTag: MedallionID
+		summarizeBy: count
+		sourceColumn: MedallionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedallionBKey
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: e2b9d14a-ede2-42a9-a252-89c2ed958271
+		sourceLineageTag: MedallionBKey
+		summarizeBy: none
+		sourceColumn: MedallionBKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedallionCode
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 941890c7-f9d6-4d99-b0cd-7a82213b8752
+		sourceLineageTag: MedallionCode
+		summarizeBy: none
+		sourceColumn: MedallionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medallion = entity
+		mode: directLake
+		source
+			entityName: Medallion
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
