@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "tripreport"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7974cde2-f64e-a349-4404-e3bf412095bd"
+  }
+}
