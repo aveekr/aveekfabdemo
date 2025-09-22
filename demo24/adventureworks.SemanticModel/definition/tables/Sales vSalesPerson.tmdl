@@ -1,0 +1,199 @@
+table 'Sales vSalesPerson'
+	lineageTag: 73886f15-6094-4064-8a5f-74ced50af475
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 71b28951-7e08-424a-9386-bab64d5e9908
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 5cdd1378-81fd-4c8d-a04c-e9572375c178
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: a437cabf-b9e3-40f9-af12-576864b97d72
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 3200b7e2-d885-424c-9620-374428fc42bb
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: ba057579-19a3-4b2b-8743-defdf47475de
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: 15a9dd6d-9c03-47c4-90f5-2e3d2ce70b3c
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		lineageTag: 3dd3e7b4-b8b5-43f3-817b-756a0a318e7d
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 3583a929-9bf4-41c6-a837-57825601f358
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		lineageTag: 5c1a263b-8e0a-4e3f-8980-5a312bdf0c42
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: 99a4df1e-9b55-45e6-82d8-9e6f69acd4af
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b8efd5f-ef46-47be-acc2-1f5220d81a9b
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: f1b72bc3-93e5-4fbc-b2c0-df8b150b4c2b
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: f79a2003-26d7-4d57-88db-181b2c4c81f0
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: f3d5de36-8422-46c7-b61e-4ca8931225ad
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: 1f982774-36f6-4d5f-9252-9ceab7b01c15
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: cf9ad330-86ac-4cfe-9516-5aa1fc56fb16
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		lineageTag: bc055203-d714-4173-9565-e6cc20d5e0b2
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryName
+		dataType: string
+		lineageTag: 008a56b0-fe8a-4e62-b85c-2c9fd2d4af55
+		summarizeBy: none
+		sourceColumn: TerritoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryGroup
+		dataType: string
+		lineageTag: 277323fa-2925-43fa-89a8-107dd169d34c
+		summarizeBy: none
+		sourceColumn: TerritoryGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 07a8b514-28b4-4302-8eb1-b50c444f68c3
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesYTD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ee56a9eb-c0f2-4402-92af-540aa3142cbc
+		summarizeBy: sum
+		sourceColumn: SalesYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesLastYear
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6e2e79ae-d3f1-428c-b67c-fa773a34e4e0
+		summarizeBy: sum
+		sourceColumn: SalesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'Sales vSalesPerson' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_vSalesPerson = Source{[Schema="Sales",Item="vSalesPerson"]}[Data]
+				in
+				    Sales_vSalesPerson
+

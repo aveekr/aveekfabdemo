@@ -1,0 +1,16 @@
+relationship a3304c5d-8d6d-4bc5-824b-1948fc6cc658
+	fromColumn: riskProfile.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship 32f3858b-93e4-41d1-bb6f-7d28afb53ca1
+	fromColumn: customerinteractions.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship 9334fda2-d004-48a8-9086-7294ebab9230
+	fromColumn: transactions.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship de536586-2f74-4f3b-99ff-55fc85b869eb
+	fromColumn: transactions.ProductID
+	toColumn: productCatalog.ProductID
+

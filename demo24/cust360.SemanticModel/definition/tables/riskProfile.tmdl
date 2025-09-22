@@ -1,0 +1,60 @@
+table riskProfile
+	lineageTag: d2bff7e9-a3bd-49b3-a55a-8fa74293ec50
+	sourceLineageTag: 8268fdf7-c80a-475c-bb17-4bcf46d9fe81
+
+	column RiskProfileID
+		dataType: string
+		lineageTag: 5179ec68-9589-47ce-8bb7-f5d80b705e6a
+		sourceLineageTag: dac35147-3277-4f92-a135-d0d266ee21d8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RiskProfileID
+
+		annotation SummarizationSetBy = User
+
+	column CustomerID
+		dataType: string
+		lineageTag: 2339fb41-428f-4e38-b71c-3d1e61fc1682
+		sourceLineageTag: f60dee70-5a59-4ddc-b292-6b09664e22e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = User
+
+	column RiskScore
+		dataType: string
+		lineageTag: 92f6beb6-472b-4ba1-a03d-8aec6fbc7a6a
+		sourceLineageTag: 4f248f85-17c6-4973-bf33-22e43b37e514
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RiskScore
+
+		annotation SummarizationSetBy = User
+
+	column RiskLevel
+		dataType: string
+		lineageTag: 2e83f949-e8c6-4ae0-8947-8da965125fab
+		sourceLineageTag: 0cee1e7c-0012-4b8f-8c73-84847fc795b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RiskLevel
+
+		annotation SummarizationSetBy = User
+
+	column AssessmentDate
+		dataType: string
+		lineageTag: fccec28b-388f-4cbc-8be6-29a12b874942
+		sourceLineageTag: 23d49fb6-473c-4d36-a5ba-011a4b13c632
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AssessmentDate
+
+		annotation SummarizationSetBy = User
+
+	partition riskProfile = entity
+		mode: directQuery
+		source
+			entityName: riskProfile
+			expressionSource: 'DirectQuery to AS - customer360'
+

@@ -1,0 +1,126 @@
+table 'Purchasing ProductVendor'
+	lineageTag: e39c4174-4af9-48da-af4a-9186843245fe
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 863e952c-5b6f-4f7d-9659-365cbed17c76
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a952ba0-44b2-4e5d-b54f-bef024bceb8a
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageLeadTime
+		dataType: int64
+		formatString: 0
+		lineageTag: 84c25a6c-41a5-4bae-96e4-968e40aa0b47
+		summarizeBy: sum
+		sourceColumn: AverageLeadTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 93c82832-5e73-4afa-be3d-d23060296535
+		summarizeBy: sum
+		sourceColumn: StandardPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LastReceiptCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f16fb74f-f85e-4524-a733-75b629058267
+		summarizeBy: sum
+		sourceColumn: LastReceiptCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column LastReceiptDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 752b23c9-b302-45d4-954e-de346fc57c23
+		summarizeBy: none
+		sourceColumn: LastReceiptDate
+
+		variation Variation
+			isDefault
+			relationship: 9e80276c-94fd-4c79-a15b-fc2199036b13
+			defaultHierarchy: LocalDateTable_e392213a-1869-4aab-b149-96f418d50ea7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinOrderQty
+		dataType: int64
+		formatString: 0
+		lineageTag: dc01a1e8-a555-4eb1-86ea-bf202e8fbdd5
+		summarizeBy: sum
+		sourceColumn: MinOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxOrderQty
+		dataType: int64
+		formatString: 0
+		lineageTag: 560c6b22-39f1-4472-bb07-790632d7eb43
+		summarizeBy: sum
+		sourceColumn: MaxOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnOrderQty
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a63a1bd-d456-49de-97a5-be9c16c74edd
+		summarizeBy: sum
+		sourceColumn: OnOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitMeasureCode
+		dataType: string
+		lineageTag: 4d09f4e7-2658-4265-827a-fe3dcdc060d2
+		summarizeBy: none
+		sourceColumn: UnitMeasureCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 85360a2d-e330-4eed-be68-752d4885df93
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 6f9c4ba1-dbc0-4634-97b7-c3d8a57574b5
+			defaultHierarchy: LocalDateTable_35e8cfe5-b490-4fac-be72-328e3dbc168c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchasing ProductVendor' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Purchasing_ProductVendor = Source{[Schema="Purchasing",Item="ProductVendor"]}[Data]
+				in
+				    Purchasing_ProductVendor
+
+	annotation PBI_ResultType = Table
+

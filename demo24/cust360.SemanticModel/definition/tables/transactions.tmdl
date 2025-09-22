@@ -1,0 +1,150 @@
+table transactions
+	lineageTag: 5adda6fc-e5c5-470b-84c0-c0fac50b2ff6
+	sourceLineageTag: b89c2fbe-265a-49bb-9345-33393c2c055b
+
+	measure 'Total Transaction Amount' = ```
+			
+			    SUM('transactions'[TotalAmount])
+			
+			
+			```
+		lineageTag: 0884fb97-7ae2-48ee-8336-81be27396a4f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TransactionID
+		dataType: string
+		lineageTag: bdb902f8-ed2d-419a-b447-50fb0f91d6dd
+		sourceLineageTag: a0b0a0e3-96c4-4e4d-9bf7-43f279d21d9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = User
+
+	column CustomerID
+		dataType: string
+		lineageTag: 3f6ab061-879d-4ef6-ba29-aba74fc51e29
+		sourceLineageTag: e09bf02b-61c6-4917-a0d7-6d1c91eff468
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = User
+
+	column TransactionDate
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 263d473a-e5f2-4235-8a85-3128014a0189
+		sourceLineageTag: 9f001f5d-9126-4c7e-8830-aa4f5ce7432e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TransactionDate
+
+		annotation SummarizationSetBy = User
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: b9480157-c58f-4d3c-8203-463332263ab9
+		sourceLineageTag: d128e997-e2ae-4293-bf50-d066456babd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = User
+
+	column TransactionType
+		dataType: string
+		lineageTag: 18a6763c-3353-4d93-8a83-d5a0531c7eba
+		sourceLineageTag: 5f179f4a-9fb4-4d3b-bc25-86db4112b36e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TransactionType
+
+		annotation SummarizationSetBy = User
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 7927297d-d5e8-4f8f-83ef-7bd825a3ea75
+		sourceLineageTag: f5f9c4a4-e7ac-4123-b6e0-a079bb13fd22
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = User
+
+	column Price
+		dataType: double
+		lineageTag: f8c5f6aa-8760-466a-8a39-1c1605ab2dc8
+		sourceLineageTag: ae5e9da3-eeda-4f51-8b40-ecc73d019949
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalAmount
+		dataType: double
+		lineageTag: e7776dcb-e6dc-4722-9f9b-1573c2cb079b
+		sourceLineageTag: 56a93261-eaf8-4f6f-986a-b7dd4836347d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TotalAmount
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BrokerID
+		dataType: string
+		lineageTag: 0bf20674-3273-4560-8da4-0888417096c3
+		sourceLineageTag: fa477273-61c1-4db1-bb4f-894ac48d9a90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BrokerID
+
+		annotation SummarizationSetBy = User
+
+	column Commission
+		dataType: double
+		lineageTag: 1dbc8ec7-191b-49a1-b5f5-13ca06c416a4
+		sourceLineageTag: bd37eac8-d257-46ad-92bf-53a9f086a1ea
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Commission
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SettlementDate
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 8283b803-7888-4dd7-8fc6-14553b23fe4b
+		sourceLineageTag: d84e5b13-d87f-496a-8118-f0fe6a91155a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SettlementDate
+
+		annotation SummarizationSetBy = User
+
+	column TransactionStatus
+		dataType: string
+		lineageTag: 5f9cb6fc-5337-4db9-8685-0bd3fae55d6e
+		sourceLineageTag: 957bfde4-4137-4743-931e-e30a23d8df5e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TransactionStatus
+
+		annotation SummarizationSetBy = User
+
+	partition transactions = entity
+		mode: directQuery
+		source
+			entityName: transactions
+			expressionSource: 'DirectQuery to AS - customer360'
+

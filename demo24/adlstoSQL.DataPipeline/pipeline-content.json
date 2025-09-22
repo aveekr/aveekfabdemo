@@ -1,0 +1,1172 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy_customerprofile",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileName": "customerprofile (1).csv",
+                  "fileSystem": "customerdata"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5a878bfb-1cc3-4ec1-932f-b84910cdd243"
+              }
+            }
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "AzureSqlTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "customerprofile",
+                "database": "wealthmanagement"
+              },
+              "externalReferences": {
+                "connection": "3a73dd0e-b85b-43d5-b0d3-d96d5e8fda86"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "CustomerID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CustomerID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Name",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Age",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Age",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Gender",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Gender",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "MaritalStatus",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "MaritalStatus",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Address",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Address",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "AnnualIncome",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "AnnualIncome",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Occupation",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Occupation",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "RiskScore",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "RiskScore",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "InvestmentExperience",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "InvestmentExperience",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "InvestmentObjective",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "InvestmentObjective",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "PreferredInvestmentType",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "PreferredInvestmentType",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TotalAssets",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TotalAssets",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TotalLiabilities",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TotalLiabilities",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "NetWorth",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "NetWorth",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "AccountTenureYears",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "AccountTenureYears",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "NumberOfDependents",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "NumberOfDependents",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "EducationLevel",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "EducationLevel",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "EmploymentStatus",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "EmploymentStatus",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "CreditScore",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CreditScore",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Email",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Email",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "PhoneNumber",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "PhoneNumber",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastUpdated",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "LastUpdated",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "City",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "City",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "State",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "State",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Copy_holdings",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileName": "holdings (2).csv",
+                  "fileSystem": "customerdata"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5a878bfb-1cc3-4ec1-932f-b84910cdd243"
+              }
+            }
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "AzureSqlTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "holdings",
+                "database": "wealthmanagement"
+              },
+              "externalReferences": {
+                "connection": "3a73dd0e-b85b-43d5-b0d3-d96d5e8fda86"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "portfolio_id",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "portfolio_id",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "asset_name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "asset_name",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "quantity",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "quantity",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "purchase_date",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "purchase_date",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "purchase_price",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "purchase_price",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "current_value",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "current_value",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "profit_loss",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "profit_loss",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "sector",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "sector",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "industry",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "industry",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "market_cap",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "market_cap",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "customerid",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "customerid",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "productId",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "productId",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Copy_riskprofile",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileName": "riskProfile.csv",
+                  "fileSystem": "customerdata"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5a878bfb-1cc3-4ec1-932f-b84910cdd243"
+              }
+            }
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "AzureSqlTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "riskprofile",
+                "database": "wealthmanagement"
+              },
+              "externalReferences": {
+                "connection": "3a73dd0e-b85b-43d5-b0d3-d96d5e8fda86"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "RiskProfileID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "RiskProfileID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "CustomerID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CustomerID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "RiskScore",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "RiskScore",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "RiskLevel",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "RiskLevel",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "AssessmentDate",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "AssessmentDate",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "CustomerProfile(CustomerID)",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CustomerProfile(CustomerID)",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Copy_transactions",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileName": "transactions (2).csv",
+                  "fileSystem": "customerdata"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5a878bfb-1cc3-4ec1-932f-b84910cdd243"
+              }
+            }
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "AzureSqlTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "transactions",
+                "database": "wealthmanagement"
+              },
+              "externalReferences": {
+                "connection": "3a73dd0e-b85b-43d5-b0d3-d96d5e8fda86"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "TransactionID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TransactionID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "CustomerID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CustomerID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransactionDate",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TransactionDate",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "ProductID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ProductID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransactionType",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TransactionType",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Quantity",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Quantity",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Price",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Price",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TotalAmount",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TotalAmount",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "BrokerID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "BrokerID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Commission",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Commission",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "SettlementDate",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "SettlementDate",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TransactionStatus",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TransactionStatus",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Copy_customerinteractions",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "AzureBlobFSReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobFSLocation",
+                  "fileName": "productCatalog (1).csv",
+                  "fileSystem": "customerdata"
+                },
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true,
+                "quoteChar": "\""
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "5a878bfb-1cc3-4ec1-932f-b84910cdd243"
+              }
+            }
+          },
+          "sink": {
+            "type": "AzureSqlSink",
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "AzureSqlTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "productCatalog",
+                "database": "wealthmanagement"
+              },
+              "externalReferences": {
+                "connection": "3a73dd0e-b85b-43d5-b0d3-d96d5e8fda86"
+              }
+            }
+          },
+          "enableStaging": false,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "ProductID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ProductID",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Name",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Name",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "ProductType",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ProductType",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "TickerSymbol",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "TickerSymbol",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Exchange",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Exchange",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "ISIN",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ISIN",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Sector",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Sector",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Industry",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Industry",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "RiskLevel",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "RiskLevel",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "Currency",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Currency",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastUpdated",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "LastUpdated",
+                  "physicalType": "nvarchar",
+                  "length": "MAX"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

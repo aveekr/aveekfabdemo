@@ -1,0 +1,102 @@
+table customerinteractions
+	lineageTag: e46f3a1c-4169-42d5-b041-5b0b98acedfd
+	sourceLineageTag: 8700157c-575f-45fa-9f2a-8d4d539caef4
+
+	measure 'Interaction Count' = ```
+			
+			    COUNTROWS('customerinteractions')
+			  
+			  
+			```
+		formatString: 0
+		lineageTag: 7084e1f4-e28c-4015-b925-2169f5f66a08
+
+	measure 'Average Sentiment' = ```
+			
+			    AVERAGE('customerinteractions'[SentimentScore])
+			  
+			  
+			```
+		lineageTag: ac471a35-5f2e-4970-bb16-f4a459279e60
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InteractionID
+		dataType: string
+		lineageTag: c21f5a5f-1355-4eec-aeab-546f15ae09ff
+		sourceLineageTag: 29692a6d-49d2-4857-9f10-dc951469a59d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: InteractionID
+
+		annotation SummarizationSetBy = User
+
+	column CustomerID
+		dataType: string
+		lineageTag: f65fa9fc-242c-433d-bf9c-b65edfa81fb8
+		sourceLineageTag: 06fa8465-95e4-4556-8333-d34390c7884c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = User
+
+	column DateTime
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f5075de9-4858-44bd-b66d-e40b9a4271db
+		sourceLineageTag: cf52a854-3f6b-4b03-9f7a-a65135635dbc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DateTime
+
+		annotation SummarizationSetBy = User
+
+	column Channel
+		dataType: string
+		lineageTag: 3cd7d443-0408-4be1-851a-dc174e3e583e
+		sourceLineageTag: 06a95cee-c8b7-4a30-8455-ec0292e4a4d8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Channel
+
+		annotation SummarizationSetBy = User
+
+	column AgentName
+		dataType: string
+		lineageTag: 4a265506-b52b-48be-89cd-6eecb1e07b86
+		sourceLineageTag: 4d52db5e-ad04-450b-b80e-18271364019b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AgentName
+
+		annotation SummarizationSetBy = User
+
+	column InteractionSummary
+		dataType: string
+		lineageTag: 80bd9225-a0b9-49d5-b91d-86010a17402e
+		sourceLineageTag: e7743585-6ae8-4cd9-bc8c-c03966cdc5da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: InteractionSummary
+
+		annotation SummarizationSetBy = User
+
+	column SentimentScore
+		dataType: double
+		lineageTag: 7bc82e8d-f5d6-493c-b294-d5c44e84deca
+		sourceLineageTag: 934697d1-bcf9-4be9-b4b2-b4fe41dfabd7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SentimentScore
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition customerinteractions = entity
+		mode: directQuery
+		source
+			entityName: customerinteractions
+			expressionSource: 'DirectQuery to AS - customer360'
+

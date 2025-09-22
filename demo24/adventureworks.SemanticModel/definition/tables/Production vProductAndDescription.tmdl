@@ -1,0 +1,53 @@
+table 'Production vProductAndDescription'
+	lineageTag: f62ad63a-ac04-4f2c-b104-0e2732c28b4d
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 866d0c6d-2871-47aa-98ef-974ad9d7b8a7
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 32417156-83f9-441b-8f24-0b546979c854
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductModel
+		dataType: string
+		lineageTag: c7a3484c-6b6a-4a14-8e8d-a7cc3d2845e6
+		summarizeBy: none
+		sourceColumn: ProductModel
+
+		annotation SummarizationSetBy = Automatic
+
+	column CultureID
+		dataType: string
+		lineageTag: 9adb09bd-1e3b-4291-8c66-6a5e39256425
+		summarizeBy: none
+		sourceColumn: CultureID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 12a421b5-f470-44e5-bfba-ea1c0c2d3a54
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production vProductAndDescription' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Production_vProductAndDescription = Source{[Schema="Production",Item="vProductAndDescription"]}[Data]
+				in
+				    Production_vProductAndDescription
+

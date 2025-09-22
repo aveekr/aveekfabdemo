@@ -1,0 +1,262 @@
+table customerprofile
+	lineageTag: 955fe88b-7be1-4697-8ed0-c9bd8d55c998
+	sourceLineageTag: 085ff290-c541-48bd-8baf-c3e5d706ea62
+
+	column CustomerID
+		dataType: string
+		isNullable: false
+		lineageTag: 718ac200-0999-4527-8ce3-cfe9d21646bd
+		sourceLineageTag: 91dc39e5-8013-432d-bff3-1ddde9af884a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = User
+
+	column Name
+		dataType: string
+		lineageTag: a332bc57-399e-4437-a219-344100e93b18
+		sourceLineageTag: fba981b2-e27a-4375-8f0b-58ed0457a2c6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = User
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c1c2fb1-2457-4882-ac1a-e7f61c0e7726
+		sourceLineageTag: 3b1e089e-142c-4f35-bd49-adf7991c3547
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = User
+
+	column Gender
+		dataType: string
+		lineageTag: 209bb23d-fe12-44a6-b618-0d3fc0770f07
+		sourceLineageTag: f55f8412-f075-40d3-a84a-e6f096a6d372
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = User
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 19dc849d-0cb3-4726-ba10-6f852034ed8b
+		sourceLineageTag: 02850085-3b9b-499b-b19f-54f73ebb38f7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = User
+
+	column Address
+		dataType: string
+		lineageTag: b383dc3b-e3a1-4216-9cec-e08dd141c4de
+		sourceLineageTag: dcd4a054-04d7-43fc-9d00-b6b3aaad8fff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = User
+
+	column AnnualIncome
+		dataType: double
+		lineageTag: 07a21d4e-8b8e-4a4d-bba7-f4d0865c4ff3
+		sourceLineageTag: 99509ade-d455-46c1-b0b9-d0e9c9461b4a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AnnualIncome
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Occupation
+		dataType: string
+		lineageTag: dd05c66a-57e2-4da9-a1c6-392a5fc9bce3
+		sourceLineageTag: acc7d710-6919-4478-bc68-9a55a2e6b64d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Occupation
+
+		annotation SummarizationSetBy = User
+
+	column RiskScore
+		dataType: string
+		lineageTag: 044acc42-59d0-44a8-88ad-ddb16e27d613
+		sourceLineageTag: f5715483-16be-4e5e-bc54-3f8dd493ce86
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RiskScore
+
+		annotation SummarizationSetBy = User
+
+	column InvestmentExperience
+		dataType: string
+		lineageTag: c117bb79-2d71-4cec-87ce-5ad87536a2c9
+		sourceLineageTag: d3b35b9d-6cb5-4a37-8b2e-7e49c8dea198
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: InvestmentExperience
+
+		annotation SummarizationSetBy = User
+
+	column InvestmentObjective
+		dataType: string
+		lineageTag: 82781697-bba7-44d8-81ed-53033c5f3d59
+		sourceLineageTag: e769df0e-c228-405c-a3d4-1caf823f5292
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: InvestmentObjective
+
+		annotation SummarizationSetBy = User
+
+	column PreferredInvestmentType
+		dataType: string
+		lineageTag: c201b652-b265-4fb5-842c-8df1dab3529b
+		sourceLineageTag: 1312269b-20bb-408a-8f4a-e6453a799f5d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PreferredInvestmentType
+
+		annotation SummarizationSetBy = User
+
+	column TotalAssets
+		dataType: double
+		lineageTag: 93c85870-55f7-40e7-9663-7bf8d1cf45a0
+		sourceLineageTag: 4faa1f84-8f11-4ba8-9432-c1b8ffa0bdf6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TotalAssets
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalLiabilities
+		dataType: double
+		lineageTag: 71f475c9-b6f0-439d-a177-9b7a387a7e6d
+		sourceLineageTag: 87eae234-5daf-499c-8499-021a63596f0b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TotalLiabilities
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AccountTenureYears
+		dataType: int64
+		formatString: 0
+		lineageTag: 625c0c97-085d-449b-825b-8514987db0b0
+		sourceLineageTag: 3ef9ba68-68dc-4f2a-99a6-5972783ca2f0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: AccountTenureYears
+
+		annotation SummarizationSetBy = User
+
+	column NumberOfDependents
+		dataType: int64
+		formatString: 0
+		lineageTag: 070ffd18-274a-4880-a5b1-340dbba14a4f
+		sourceLineageTag: d8dcf2be-bf51-4840-964e-48ca0a38682f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NumberOfDependents
+
+		annotation SummarizationSetBy = User
+
+	column EducationLevel
+		dataType: string
+		lineageTag: cf54bc1f-e76f-4e58-a058-942a399b16b4
+		sourceLineageTag: 35d0c96d-39fd-4cc7-b1a2-fc8a78eee684
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EducationLevel
+
+		annotation SummarizationSetBy = User
+
+	column EmploymentStatus
+		dataType: string
+		lineageTag: 87b42893-4421-49c3-94eb-b1d7ec71c2f9
+		sourceLineageTag: 68e246c4-57e6-43d0-a4b6-1b97dfb8379d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EmploymentStatus
+
+		annotation SummarizationSetBy = User
+
+	column CreditScore
+		dataType: int64
+		formatString: 0
+		lineageTag: e200528f-f828-4918-b22b-7bd9ce2e644b
+		sourceLineageTag: b3b47ff8-f1e8-44ac-84cf-c61efd1d6b3d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CreditScore
+
+		annotation SummarizationSetBy = User
+
+	column Email
+		dataType: string
+		lineageTag: f8dcf41b-3fa0-4da5-9c9d-ed3eb62deca3
+		sourceLineageTag: 5f9f4828-2288-4bbb-a29d-c41b59f63af8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = User
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 5d453e3a-96e6-4dc3-8494-bdc16cc7e6f9
+		sourceLineageTag: 2817cbca-f074-4365-b8bd-1ddd3fc062a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = User
+
+	column LastUpdated
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 458c1b29-003a-476f-ab95-0a8cea0776e2
+		sourceLineageTag: e5c80bef-d049-4f59-9020-620664ce6b6b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LastUpdated
+
+		annotation SummarizationSetBy = User
+
+	column City
+		dataType: string
+		lineageTag: 31974134-94f2-4e17-8733-8d3f98b30ac1
+		sourceLineageTag: ea99869c-943e-411d-b4f8-d65735a56d98
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = User
+
+	column State
+		dataType: string
+		lineageTag: 7043bb03-3065-4279-925f-e5b4c960f547
+		sourceLineageTag: f806da95-f928-4c76-925d-959a3317c16f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = User
+
+	partition customerprofile = entity
+		mode: directQuery
+		source
+			entityName: customerprofile
+			expressionSource: 'DirectQuery to AS - customer360'
+

@@ -1,0 +1,68 @@
+table 'Sales Store'
+	lineageTag: 1ad5ba70-a201-4ab3-91d8-60160357d72f
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: d413f6b4-a770-4f34-9e59-fa9329904aa9
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: a1f68129-25dd-4780-8be1-23a9ef0a1eae
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesPersonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 25d8a4ac-ed3e-4317-af8c-79e846903e99
+		summarizeBy: none
+		sourceColumn: SalesPersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Demographics
+		dataType: string
+		lineageTag: dbba3ff1-552d-4e5a-a13d-c499ba013077
+		summarizeBy: none
+		sourceColumn: Demographics
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 3c0050bf-eb5d-40da-b0e4-35c9bc447450
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0180ab77-f404-460a-94f2-fd76f9158488
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: c0775c35-37da-4b9d-a1fd-f502d288e6d0
+			defaultHierarchy: LocalDateTable_2ab74253-e76c-433f-8d35-c46f1807fea9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales Store' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_Store = Source{[Schema="Sales",Item="Store"]}[Data]
+				in
+				    Sales_Store
+

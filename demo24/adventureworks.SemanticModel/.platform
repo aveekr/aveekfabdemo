@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "adventureworks"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ea054380-81a7-82b6-492a-1117aec6d88d"
+  }
+}

@@ -1,0 +1,86 @@
+table customerinteractions
+	lineageTag: 5a9a8a9e-1de0-40b2-be72-a5e67d1d418b
+	sourceLineageTag: [dbo].[customerinteractions]
+
+	column InteractionID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bc104a7c-5cc1-41f1-aa39-1e99b9586116
+		sourceLineageTag: InteractionID
+		summarizeBy: none
+		sourceColumn: InteractionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 35097a00-ed49-4362-a75e-51deef13b18e
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateTime
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 71f58477-c755-444e-8b3d-58190864955f
+		sourceLineageTag: DateTime
+		summarizeBy: none
+		sourceColumn: DateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column Channel
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fc382cbd-184a-4c41-9cb0-838019c45645
+		sourceLineageTag: Channel
+		summarizeBy: none
+		sourceColumn: Channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgentName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5a7b7099-577c-4015-bd9d-bbd63f82cb32
+		sourceLineageTag: AgentName
+		summarizeBy: none
+		sourceColumn: AgentName
+
+		annotation SummarizationSetBy = Automatic
+
+	column InteractionSummary
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8c3bf184-70c7-477d-bcf9-50328e880b3f
+		sourceLineageTag: InteractionSummary
+		summarizeBy: none
+		sourceColumn: InteractionSummary
+
+		annotation SummarizationSetBy = Automatic
+
+	column SentimentScore
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 134fc17b-5cef-4124-87ca-51ae95ea5aeb
+		sourceLineageTag: SentimentScore
+		summarizeBy: sum
+		sourceColumn: SentimentScore
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition customerinteractions = entity
+		mode: directLake
+		source
+			entityName: customerinteractions
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

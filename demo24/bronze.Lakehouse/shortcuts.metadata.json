@@ -1,0 +1,26 @@
+[
+  {
+    "name": "capacities_silver",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/capacities_silver",
+        "itemId": "5383a1f4-6bbb-4432-840c-af2a097d51a1",
+        "workspaceId": "273eb2b8-2b66-4152-814c-b03c55fcf953"
+      }
+    }
+  },
+  {
+    "name": "customerinteractionsdemo",
+    "path": "/Files/customerdata",
+    "target": {
+      "type": "AmazonS3",
+      "amazonS3": {
+        "connectionId": "c18a702b-1a4d-4c9e-bb58-db57d36839b9",
+        "location": "s3://customerinteractionsdemo",
+        "subpath": "/"
+      }
+    }
+  }
+]

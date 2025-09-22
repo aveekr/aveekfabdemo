@@ -1,0 +1,42 @@
+table 'Sales CountryRegionCurrency'
+	lineageTag: 981bf5bb-ab64-45a5-92f4-ad568f08dbe2
+
+	column CountryRegionCode
+		dataType: string
+		lineageTag: 8d82ed9b-af22-43bb-8674-5ed0a136c376
+		summarizeBy: none
+		sourceColumn: CountryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyCode
+		dataType: string
+		lineageTag: ab490ccb-55ce-4e3d-9fc3-3c85afd2a7d5
+		summarizeBy: none
+		sourceColumn: CurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b26472ca-d549-441a-9ec7-e860d6cc43d5
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 7ac09e7c-b54c-4ff2-81b9-f092040e910b
+			defaultHierarchy: LocalDateTable_c0109999-7f14-46f9-aa20-7975d021584b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales CountryRegionCurrency' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_CountryRegionCurrency = Source{[Schema="Sales",Item="CountryRegionCurrency"]}[Data]
+				in
+				    Sales_CountryRegionCurrency
+

@@ -1,0 +1,110 @@
+table 'Purchasing vVendorWithContacts'
+	lineageTag: 95425ce2-7fb0-4d47-9ce8-a80bf80c2d43
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 80d2b9be-e3ab-4dd4-938c-d196f8bc8b40
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 645eaa06-5bc9-4c02-b011-f157d0d15fef
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactType
+		dataType: string
+		lineageTag: 88c9edc5-fb83-4374-bc1d-c192bf2276d9
+		summarizeBy: none
+		sourceColumn: ContactType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: b456bcc7-9d9a-4792-b8b4-d45ee67e025c
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: bf629d94-ac56-404b-8c5a-b5297ce06340
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 7a18cf89-7edc-40d3-a63f-07c8172ce787
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 1ff505db-c8f9-450a-8516-7d9076e49d74
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: dc5f656c-dfad-453d-902a-15bd686a1e9a
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumber
+		dataType: string
+		lineageTag: 2c9c45f4-63ca-4913-a970-3acbb64c7b77
+		summarizeBy: none
+		sourceColumn: PhoneNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneNumberType
+		dataType: string
+		lineageTag: cf59ddf2-b5f9-46df-851d-bc33e82fe97c
+		summarizeBy: none
+		sourceColumn: PhoneNumberType
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailAddress
+		dataType: string
+		lineageTag: 67686bac-93a3-4e05-b956-4f5e1d38f84b
+		summarizeBy: none
+		sourceColumn: EmailAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPromotion
+		dataType: int64
+		formatString: 0
+		lineageTag: d5bd0180-c9dc-4dab-8073-3a64b33fe892
+		summarizeBy: sum
+		sourceColumn: EmailPromotion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchasing vVendorWithContacts' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Purchasing_vVendorWithContacts = Source{[Schema="Purchasing",Item="vVendorWithContacts"]}[Data]
+				in
+				    Purchasing_vVendorWithContacts
+

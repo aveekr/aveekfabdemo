@@ -1,0 +1,124 @@
+table productCatalog
+	lineageTag: f21b571e-85ca-40d5-9377-656570ed81c8
+	sourceLineageTag: [dbo].[productCatalog]
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7f678c14-adc5-4562-80d9-650d4327f259
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 54ccc662-f820-4c53-9606-8eda43ae9a74
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8586e978-97ab-4d26-b2e3-2184b356d8fc
+		sourceLineageTag: ProductType
+		summarizeBy: none
+		sourceColumn: ProductType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TickerSymbol
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e3079de5-44cf-4383-aad0-698163ac2642
+		sourceLineageTag: TickerSymbol
+		summarizeBy: none
+		sourceColumn: TickerSymbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exchange
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bf7dd7cf-cb9a-4d8e-9a42-f7a1b16edbdc
+		sourceLineageTag: Exchange
+		summarizeBy: none
+		sourceColumn: Exchange
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISIN
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 666920bc-315c-4d3e-a40f-5cfd01697e85
+		sourceLineageTag: ISIN
+		summarizeBy: none
+		sourceColumn: ISIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sector
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 68187a6c-c890-4817-aff8-a23b7c5e147d
+		sourceLineageTag: Sector
+		summarizeBy: none
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 3431f7a4-4d9b-4cc1-90da-3a429de315e2
+		sourceLineageTag: Industry
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskLevel
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 767ce32c-6159-4a06-9d8c-0fc107dbc1c5
+		sourceLineageTag: RiskLevel
+		summarizeBy: none
+		sourceColumn: RiskLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 551701da-8e0d-4395-8cf5-25f3cffd6457
+		sourceLineageTag: Currency
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastUpdated
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 10fc7d18-85cf-432e-b17e-963ce2f92014
+		sourceLineageTag: LastUpdated
+		summarizeBy: none
+		sourceColumn: LastUpdated
+
+		annotation SummarizationSetBy = Automatic
+
+	partition productCatalog = entity
+		mode: directLake
+		source
+			entityName: productCatalog
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

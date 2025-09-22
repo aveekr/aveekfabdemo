@@ -1,0 +1,85 @@
+table 'Sales vStoreWithAddresses'
+	lineageTag: dff5d55e-2b1a-4a88-b92e-3ef8ec4c3081
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 66710595-0aa7-4ee6-be7f-949d8bcf176d
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 0e440bdf-309a-4d2a-8ad3-1e28e56c9ab9
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressType
+		dataType: string
+		lineageTag: 762242e1-241c-40ac-8639-8fe9fa1c8adf
+		summarizeBy: none
+		sourceColumn: AddressType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine1
+		dataType: string
+		lineageTag: 5f4580ef-fb05-4f4e-9024-f5ec5153db09
+		summarizeBy: none
+		sourceColumn: AddressLine1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressLine2
+		dataType: string
+		lineageTag: fd42f6c6-b969-4745-9a81-dc4d97585c09
+		summarizeBy: none
+		sourceColumn: AddressLine2
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 25724f28-8fdc-4ea6-ab80-f79673580817
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceName
+		dataType: string
+		lineageTag: bf5693ee-da0f-48cf-b9c8-24060b8effee
+		summarizeBy: none
+		sourceColumn: StateProvinceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: be6f4d77-85a4-42cd-820c-db3d7166e520
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryRegionName
+		dataType: string
+		lineageTag: ac027453-efdb-4add-bf7f-7f43f28ad1d7
+		summarizeBy: none
+		sourceColumn: CountryRegionName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales vStoreWithAddresses' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_vStoreWithAddresses = Source{[Schema="Sales",Item="vStoreWithAddresses"]}[Data]
+				in
+				    Sales_vStoreWithAddresses
+

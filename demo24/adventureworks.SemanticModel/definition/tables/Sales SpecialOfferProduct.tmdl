@@ -1,0 +1,52 @@
+table 'Sales SpecialOfferProduct'
+	lineageTag: 7951a5d0-6dab-4672-9751-160de75b1ace
+
+	column SpecialOfferID
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e8d15e5-3045-4360-8eba-f3477c992f5f
+		summarizeBy: none
+		sourceColumn: SpecialOfferID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: da68e4d1-65ed-43e8-b2ab-b13910e1288c
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 616c47e6-dd5b-42bd-9653-32f6f59f914f
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c73e701c-da23-4d2f-97d6-68c892b7be71
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 9076aec4-af18-49cc-9aff-ef95ec9e477f
+			defaultHierarchy: LocalDateTable_ecf62a89-8067-4a07-ad60-d67d4c024051.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SpecialOfferProduct' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SpecialOfferProduct = Source{[Schema="Sales",Item="SpecialOfferProduct"]}[Data]
+				in
+				    Sales_SpecialOfferProduct
+

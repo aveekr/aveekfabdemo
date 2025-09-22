@@ -1,0 +1,73 @@
+table 'Purchasing ShipMethod'
+	lineageTag: b418a6ab-3436-4dea-9ee4-43e591ecae49
+
+	column ShipMethodID
+		dataType: int64
+		formatString: 0
+		lineageTag: 304e538e-99b8-4978-aa8e-4ce1eea70400
+		summarizeBy: none
+		sourceColumn: ShipMethodID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 701770c9-9385-4e7d-89b4-794d38f0e4fc
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipBase
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 65ec7aed-6a99-4b12-becb-7560e21f9bb7
+		summarizeBy: sum
+		sourceColumn: ShipBase
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ShipRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dc2bd9a3-709d-4b92-8425-cf1952fec7a7
+		summarizeBy: sum
+		sourceColumn: ShipRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column rowguid
+		dataType: string
+		lineageTag: a297d145-8630-40d1-8b56-2852878d24c3
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 45d91206-f7a3-4f7d-b9c5-064e3e03a6db
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: e96f5f71-bdd5-4677-990a-1e3cdf3502cc
+			defaultHierarchy: LocalDateTable_4ce105e9-26ce-4766-8851-046a87cbcbe6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchasing ShipMethod' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Purchasing_ShipMethod = Source{[Schema="Purchasing",Item="ShipMethod"]}[Data]
+				in
+				    Purchasing_ShipMethod
+

@@ -1,0 +1,128 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "customer_interactions",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "ec24cc3c-0e73-4c1b-bdd8-e8f5a2442636",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "customer_profile",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "188a6c37-0ac3-4590-a3fb-eb93d6d8b946",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "Transactions",
+        "type": "RefreshDataflow",
+        "dependsOn": [
+          {
+            "activity": "Products",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "5787eb42-1a4c-45c9-9455-205bd5c2b90e",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "RiskProfile",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "02850211-e736-4bea-90d0-3b6071838a9e",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "Products",
+        "type": "RefreshDataflow",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "a22c7397-b7e5-4efe-bacf-564d0ff8ffd8",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      },
+      {
+        "name": "Holdings",
+        "type": "RefreshDataflow",
+        "dependsOn": [
+          {
+            "activity": "Products",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "dataflowId": "ecee1344-4edc-452c-b3c9-ba8f019a0e42",
+          "workspaceId": "eebc13dd-b560-4280-aeb3-c6d342982b7e",
+          "notifyOption": "NoNotification",
+          "dataflowType": "Dataflow-Gen2"
+        }
+      }
+    ]
+  }
+}

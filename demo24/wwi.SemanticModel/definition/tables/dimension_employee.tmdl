@@ -1,0 +1,99 @@
+table dimension_employee
+	lineageTag: 97b105e6-c39a-4728-a7b8-98f535729859
+	sourceLineageTag: [dbo].[dimension_employee]
+
+	column EmployeeKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9bb87024-263b-4b49-9990-482e6064a05e
+		sourceLineageTag: EmployeeKey
+		summarizeBy: count
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WWIEmployeeID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bd9e0966-ef4a-4c23-8514-42d8efe0a81f
+		sourceLineageTag: WWIEmployeeID
+		summarizeBy: count
+		sourceColumn: WWIEmployeeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b013d415-a0a5-49cf-96ab-bf3920493cd7
+		sourceLineageTag: Employee
+		summarizeBy: none
+		sourceColumn: Employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6e6c323f-18ff-4d25-a41c-a223fe1d8efd
+		sourceLineageTag: PreferredName
+		summarizeBy: none
+		sourceColumn: PreferredName
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSalesperson
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: a11b0578-5658-49dc-a063-9011664f61b7
+		sourceLineageTag: IsSalesperson
+		summarizeBy: none
+		sourceColumn: IsSalesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidFrom
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b52cbf2d-890e-423d-a340-b87b60d3ef8b
+		sourceLineageTag: ValidFrom
+		summarizeBy: none
+		sourceColumn: ValidFrom
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidTo
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5378678d-8616-4964-8e25-7585ca3c4ab2
+		sourceLineageTag: ValidTo
+		summarizeBy: none
+		sourceColumn: ValidTo
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineageKey
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 32c3116d-7a4b-4a68-88a6-a88635535c9c
+		sourceLineageTag: LineageKey
+		summarizeBy: none
+		sourceColumn: LineageKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimension_employee = entity
+		mode: directLake
+		source
+			entityName: dimension_employee
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

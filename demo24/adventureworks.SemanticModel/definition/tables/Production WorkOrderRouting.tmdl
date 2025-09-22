@@ -1,0 +1,152 @@
+table 'Production WorkOrderRouting'
+	lineageTag: 94b3ff40-89f3-493b-a893-bef242a800b9
+
+	column WorkOrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: ed579415-6d98-480a-b6f8-3c495fa058be
+		summarizeBy: count
+		sourceColumn: WorkOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 822d54da-c7e3-4ef8-b3a2-20cf580a00df
+		summarizeBy: count
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OperationSequence
+		dataType: int64
+		formatString: 0
+		lineageTag: 378feda6-7205-4697-b1c9-cd3c5fbd9d03
+		summarizeBy: sum
+		sourceColumn: OperationSequence
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: f514b23a-d4b2-4ae9-8ab9-897092f6ef3c
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 18142a05-cc2a-4c24-a069-277345ff012e
+		summarizeBy: none
+		sourceColumn: ScheduledStartDate
+
+		variation Variation
+			isDefault
+			relationship: 417dc5f7-b34a-4815-bc79-e05146879726
+			defaultHierarchy: LocalDateTable_b67315e6-be07-4628-a440-5788e4108da2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 617b8b61-85e1-4f80-8844-a595a220ee01
+		summarizeBy: none
+		sourceColumn: ScheduledEndDate
+
+		variation Variation
+			isDefault
+			relationship: fae85b99-9001-4b4c-8660-01e182ae2358
+			defaultHierarchy: LocalDateTable_a0e3f8b8-10ba-4158-b7ab-fe72201560bd.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualStartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: beb0cd9b-2f7c-40a5-af41-b50908af1960
+		summarizeBy: none
+		sourceColumn: ActualStartDate
+
+		variation Variation
+			isDefault
+			relationship: 2d5b0eb8-33a2-4d79-9303-70f184ddcaca
+			defaultHierarchy: LocalDateTable_4ab5a34b-6bf3-4a6c-89a0-0841dadc7866.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualEndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 67965e8a-c038-4b4d-a528-2b47ecc45ff9
+		summarizeBy: none
+		sourceColumn: ActualEndDate
+
+		variation Variation
+			isDefault
+			relationship: 1591f92b-041e-47f9-bf51-f14b56d09de8
+			defaultHierarchy: LocalDateTable_bffb3be3-096a-469f-84d2-166c96e3b6e0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualResourceHrs
+		dataType: double
+		lineageTag: 92b33063-22ae-4bcd-b2e1-c0cc0318cad0
+		summarizeBy: sum
+		sourceColumn: ActualResourceHrs
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PlannedCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 9ac065a4-3d07-456d-a128-2855ee29506b
+		summarizeBy: sum
+		sourceColumn: PlannedCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ActualCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fcf78ea7-c83b-4d7e-aca0-0b9c549956a3
+		summarizeBy: sum
+		sourceColumn: ActualCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 864524bd-9203-4dc5-80c2-719b541a28a8
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: ba7f508a-f164-4eb7-8d7e-3b2333982229
+			defaultHierarchy: LocalDateTable_7f98a5da-b68b-4cfd-b227-35cff6c02b67.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Production WorkOrderRouting' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Production_WorkOrderRouting = Source{[Schema="Production",Item="WorkOrderRouting"]}[Data]
+				in
+				    Production_WorkOrderRouting
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MirroredDatabase",
+    "displayName": "wealthmanagement"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "64c7113b-3754-89ab-49ad-e25a5399dc3b"
+  }
+}

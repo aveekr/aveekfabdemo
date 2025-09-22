@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "testonelake"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a257b5a5-67c2-8bc6-4134-af8d7942c6c2"
+  }
+}

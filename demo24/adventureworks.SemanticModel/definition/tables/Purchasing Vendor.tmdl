@@ -1,0 +1,86 @@
+table 'Purchasing Vendor'
+	lineageTag: 484712de-b139-4dca-9081-3d7fd182dc59
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: cdfebe8c-7ca9-4d5d-85b5-5259002830dd
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountNumber
+		dataType: string
+		lineageTag: df2eec3b-199a-4104-b2f3-b7a9ad8c64df
+		summarizeBy: none
+		sourceColumn: AccountNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: e5861fa1-800e-4be1-9503-77c9dcf3e6dc
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditRating
+		dataType: int64
+		formatString: 0
+		lineageTag: bec6d4b9-5987-4363-a6d5-191885cc97e5
+		summarizeBy: sum
+		sourceColumn: CreditRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredVendorStatus
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4cfd658-a1e9-4cda-b5b2-cf3aa2679fce
+		summarizeBy: none
+		sourceColumn: PreferredVendorStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e4595756-6ea8-4735-9be5-944929245523
+		summarizeBy: none
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurchasingWebServiceURL
+		dataType: string
+		lineageTag: 0e108127-7e60-4dba-b874-fff920b41bd4
+		summarizeBy: none
+		sourceColumn: PurchasingWebServiceURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 262aa14e-fcf3-4743-9412-aae9065f259f
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 6a191bbb-041f-4cdb-96d0-7224ea96b844
+			defaultHierarchy: LocalDateTable_f426bc5b-a607-4a5f-bf2c-ef256148cb69.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchasing Vendor' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Purchasing_Vendor = Source{[Schema="Purchasing",Item="Vendor"]}[Data]
+				in
+				    Purchasing_Vendor
+

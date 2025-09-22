@@ -1,0 +1,44 @@
+table 'Sales SalesOrderHeaderSalesReason'
+	lineageTag: 1a779241-a595-431a-91a6-8adb993ec9d0
+
+	column SalesOrderID
+		dataType: int64
+		formatString: 0
+		lineageTag: d23c5ac1-19fb-463e-9399-f46642de1765
+		summarizeBy: none
+		sourceColumn: SalesOrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesReasonID
+		dataType: int64
+		formatString: 0
+		lineageTag: b1cfc734-5e2d-42db-a33d-4cd848dfa89b
+		summarizeBy: none
+		sourceColumn: SalesReasonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ef465bde-5b1d-4b6c-9a8a-2b0ce67d670b
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: a7d403ad-4137-4a56-a011-80d06b3fb1f2
+			defaultHierarchy: LocalDateTable_e74fef18-843c-4d7d-9a5d-ebf68e31c125.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesOrderHeaderSalesReason' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SalesOrderHeaderSalesReason = Source{[Schema="Sales",Item="SalesOrderHeaderSalesReason"]}[Data]
+				in
+				    Sales_SalesOrderHeaderSalesReason
+

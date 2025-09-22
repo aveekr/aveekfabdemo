@@ -1,0 +1,212 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/graphqlApi/definition/1.0.0/schema.json",
+  "datasources": [
+    {
+      "objects": [
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "Date": "date",
+            "DateBKey": "DateBKey",
+            "DateID": "DateID",
+            "DayName": "DayName",
+            "DayOfMonth": "DayOfMonth",
+            "DayOfQuarter": "DayOfQuarter",
+            "DayOfWeek": "DayOfWeek",
+            "DayOfWeekInMonth": "DayOfWeekInMonth",
+            "DayOfWeekInYear": "DayOfWeekInYear",
+            "DayOfYear": "DayOfYear",
+            "DaySuffix": "DaySuffix",
+            "FirstDayOfMonth": "FirstDayOfMonth",
+            "FirstDayOfQuarter": "FirstDayOfQuarter",
+            "FirstDayOfYear": "FirstDayOfYear",
+            "HolidayUSA": "HolidayUSA",
+            "IsHolidayUSA": "IsHolidayUSA",
+            "IsWeekday": "IsWeekday",
+            "LastDayOfMonth": "LastDayOfMonth",
+            "LastDayOfQuarter": "LastDayOfQuarter",
+            "LastDayOfYear": "LastDayOfYear",
+            "MMYYYY": "MMYYYY",
+            "Month": "Month",
+            "MonthName": "MonthName",
+            "MonthOfQuarter": "MonthOfQuarter",
+            "MonthYear": "MonthYear",
+            "Quarter": "Quarter",
+            "QuarterName": "QuarterName",
+            "WeekOfMonth": "WeekOfMonth",
+            "WeekOfQuarter": "WeekOfQuarter",
+            "WeekOfYear": "WeekOfYear",
+            "Year": "Year",
+            "YearName": "YearName"
+          },
+          "graphqlType": "date",
+          "relationships": [],
+          "sourceObject": "dbo.Date",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "City": "City",
+            "Country": "Country",
+            "County": "County",
+            "GeographyID": "GeographyID",
+            "State": "State",
+            "ZipCode": "ZipCode",
+            "ZipCodeBKey": "ZipCodeBKey"
+          },
+          "graphqlType": "Geography",
+          "relationships": [],
+          "sourceObject": "dbo.Geography",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "HackneyLicenseBKey": "HackneyLicenseBKey",
+            "HackneyLicenseCode": "HackneyLicenseCode",
+            "HackneyLicenseID": "HackneyLicenseID"
+          },
+          "graphqlType": "HackneyLicense",
+          "relationships": [],
+          "sourceObject": "dbo.HackneyLicense",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "MedallionBKey": "MedallionBKey",
+            "MedallionCode": "MedallionCode",
+            "MedallionID": "MedallionID"
+          },
+          "graphqlType": "Medallion",
+          "relationships": [],
+          "sourceObject": "dbo.Medallion",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "DayTimeBucket": "DayTimeBucket",
+            "DayTimeBucketGroupKey": "DayTimeBucketGroupKey",
+            "HourlyBucket": "HourlyBucket",
+            "HourNumber": "HourNumber",
+            "MinuteNumber": "MinuteNumber",
+            "SecondNumber": "SecondNumber",
+            "TimeBKey": "TimeBKey",
+            "TimeID": "TimeID",
+            "TimeInSecond": "TimeInSecond"
+          },
+          "graphqlType": "Time",
+          "relationships": [],
+          "sourceObject": "dbo.Time",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "DateID": "DateID",
+            "DropoffGeographyID": "DropoffGeographyID",
+            "DropoffLatitude": "DropoffLatitude",
+            "DropoffLatLong": "DropoffLatLong",
+            "DropoffLongitude": "DropoffLongitude",
+            "DropoffTimeID": "DropoffTimeID",
+            "FareAmount": "FareAmount",
+            "HackneyLicenseID": "HackneyLicenseID",
+            "MedallionID": "MedallionID",
+            "PassengerCount": "PassengerCount",
+            "PaymentType": "PaymentType",
+            "PickupGeographyID": "PickupGeographyID",
+            "PickupLatitude": "PickupLatitude",
+            "PickupLatLong": "PickupLatLong",
+            "PickupLongitude": "PickupLongitude",
+            "PickupTimeID": "PickupTimeID",
+            "SurchargeAmount": "SurchargeAmount",
+            "TaxAmount": "TaxAmount",
+            "TipAmount": "TipAmount",
+            "TollsAmount": "TollsAmount",
+            "TotalAmount": "TotalAmount",
+            "TripDistanceMiles": "TripDistanceMiles",
+            "TripDurationSeconds": "TripDurationSeconds"
+          },
+          "graphqlType": "Trip",
+          "relationships": [],
+          "sourceObject": "dbo.Trip",
+          "sourceObjectType": "Table"
+        },
+        {
+          "actions": {
+            "Query": "Enabled"
+          },
+          "fieldMappings": {
+            "PaymentsCount": "PaymentsCount",
+            "PaymentType": "PaymentType",
+            "TotalAmountProcessed": "TotalAmountProcessed"
+          },
+          "graphqlType": "vw_PaymentAnalysis",
+          "relationships": [],
+          "sourceObject": "dbo.vw_PaymentAnalysis",
+          "sourceObjectType": "View"
+        },
+        {
+          "actions": {
+            "Query": "Enabled",
+            "Query_by_pk": "Enabled",
+            "Create": "Enabled",
+            "Update": "Enabled",
+            "Delete": "Enabled"
+          },
+          "fieldMappings": {
+            "AvgTemperatureFahrenheit": "AvgTemperatureFahrenheit",
+            "DateID": "DateID",
+            "GeographyID": "GeographyID",
+            "PrecipitationInches": "PrecipitationInches"
+          },
+          "graphqlType": "Weather",
+          "relationships": [],
+          "sourceObject": "dbo.Weather",
+          "sourceObjectType": "Table"
+        }
+      ],
+      "sourceItemId": "c36a48c8-df6f-aabb-46af-7af9915b590f",
+      "sourceType": "Warehouse",
+      "sourceWorkspaceId": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}

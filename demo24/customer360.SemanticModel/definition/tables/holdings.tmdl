@@ -1,0 +1,192 @@
+table holdings
+	lineageTag: 76d5f2e4-cdcc-439d-8d02-77d6dc3e4ea1
+	sourceLineageTag: [dbo].[holdings]
+
+	column portfolio_id
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: de8f5b90-4b06-4352-9e47-99c5f63cd516
+		sourceLineageTag: portfolio_id
+		summarizeBy: none
+		sourceColumn: portfolio_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f5fb1dba-2bb2-484e-9347-c0b913aa2928
+		sourceLineageTag: asset_name
+		summarizeBy: none
+		sourceColumn: asset_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c335c77a-7302-4dd3-9855-e22b121ee3a8
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column purchase_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a555ee78-2594-42e0-895e-b9ea66fe3a5f
+		sourceLineageTag: purchase_date
+		summarizeBy: none
+		sourceColumn: purchase_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_price
+		dataType: double
+		sourceProviderType: float
+		lineageTag: fa6db075-8cd4-4c9c-bab6-a0e25ced7b4d
+		sourceLineageTag: purchase_price
+		summarizeBy: sum
+		sourceColumn: purchase_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column current_value
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0f00d738-a5c5-4912-80c9-b7fa41a309fe
+		sourceLineageTag: current_value
+		summarizeBy: sum
+		sourceColumn: current_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column profit_loss
+		dataType: double
+		sourceProviderType: float
+		lineageTag: afe5294a-09a8-41ea-910f-def70434c21d
+		sourceLineageTag: profit_loss
+		summarizeBy: sum
+		sourceColumn: profit_loss
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sector
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5d566b08-c1e0-4c84-90d1-f67b43ebaa96
+		sourceLineageTag: sector
+		summarizeBy: none
+		sourceColumn: sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 11a58d82-e13c-4c80-9221-121699347ba2
+		sourceLineageTag: industry
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column market_cap
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 603e7581-3871-48ca-ad1c-e24294b6dcd9
+		sourceLineageTag: market_cap
+		summarizeBy: none
+		sourceColumn: market_cap
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerid
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: badd7e4b-9c0e-469e-8bd7-e4992411a146
+		sourceLineageTag: customerid
+		summarizeBy: none
+		sourceColumn: customerid
+
+		annotation SummarizationSetBy = Automatic
+
+	column productId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 833bd49f-d651-461e-93f1-ad392b9d3c9a
+		sourceLineageTag: productId
+		summarizeBy: none
+		sourceColumn: productId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6378a11e-0917-47cb-b1c3-71873ac0fd48
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2279ac35-4343-47b5-b23a-30bdbe4e9081
+		sourceLineageTag: ProductType
+		summarizeBy: none
+		sourceColumn: ProductType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TickerSymbol
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a3bae815-0b93-4457-918e-dbd228d55533
+		sourceLineageTag: TickerSymbol
+		summarizeBy: none
+		sourceColumn: TickerSymbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sector.1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f0efc564-3a35-4ba4-99d1-9655a5a034e2
+		sourceLineageTag: Sector.1
+		summarizeBy: none
+		sourceColumn: Sector.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Industry.1'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b0682c29-9db2-4192-9fa8-2eaaf4c012ac
+		sourceLineageTag: Industry.1
+		summarizeBy: none
+		sourceColumn: Industry.1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition holdings = entity
+		mode: directLake
+		source
+			entityName: holdings
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

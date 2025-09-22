@@ -1,0 +1,20 @@
+relationship ee35d3f9-f70f-b94b-afc1-bcef556a5b29
+	fromColumn: customerinteractions.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship 71dc0f9b-3f0f-04ba-9100-8b3c731223eb
+	fromColumn: holdings.customerid
+	toColumn: customerprofile.CustomerID
+
+relationship b50a6ea1-92cc-1fb6-784d-2e2f8d6cf52c
+	fromColumn: riskProfile.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship ec599d68-138c-6d7d-0571-77aa2b726fd4
+	fromColumn: transactions.CustomerID
+	toColumn: customerprofile.CustomerID
+
+relationship e524c614-c2c6-a011-1745-4e82e4712059
+	fromColumn: transactions.ProductID
+	toColumn: productCatalog.ProductID
+

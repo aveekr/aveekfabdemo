@@ -1,0 +1,143 @@
+table transactions
+	lineageTag: 5a35912f-237c-4697-be6f-cb187ce48cb8
+	sourceLineageTag: [dbo].[transactions]
+
+	column TransactionID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2d7a02cd-fa3e-4e9b-8182-3b680f9622aa
+		sourceLineageTag: TransactionID
+		summarizeBy: none
+		sourceColumn: TransactionID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0613a969-7fc8-47a1-8302-e48dc3a5adce
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b0447088-460f-4bf9-b2ec-009d92a6f0df
+		sourceLineageTag: TransactionDate
+		summarizeBy: none
+		sourceColumn: TransactionDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 67cc913d-fea2-43f1-bad7-1c2ca02ac076
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6cf23c0a-0e2e-4eff-8d5c-50717ab6717b
+		sourceLineageTag: TransactionType
+		summarizeBy: none
+		sourceColumn: TransactionType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4ef4c890-ba60-4e85-a45b-ade5b6c0b1e1
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 88d84101-846b-4888-9f1d-17e16807df49
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalAmount
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 0caabf49-3290-495c-aaee-823272f90b3f
+		sourceLineageTag: TotalAmount
+		summarizeBy: sum
+		sourceColumn: TotalAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BrokerID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7b818227-1c86-4dbc-97e7-3f37621f95ee
+		sourceLineageTag: BrokerID
+		summarizeBy: none
+		sourceColumn: BrokerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Commission
+		dataType: double
+		sourceProviderType: float
+		lineageTag: b77434a6-7f30-4d6d-aa06-bd5d384dffd8
+		sourceLineageTag: Commission
+		summarizeBy: sum
+		sourceColumn: Commission
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SettlementDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5ae012f6-a882-4408-8d00-d5dbc7b44137
+		sourceLineageTag: SettlementDate
+		summarizeBy: none
+		sourceColumn: SettlementDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransactionStatus
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5e0c1a90-7cf7-4332-87c4-078d056a4181
+		sourceLineageTag: TransactionStatus
+		summarizeBy: none
+		sourceColumn: TransactionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition transactions = entity
+		mode: directLake
+		source
+			entityName: transactions
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,87 @@
+table 'Sales CurrencyRate'
+	lineageTag: 5acd2b79-35dd-467a-aec2-1753a7c17665
+
+	column CurrencyRateID
+		dataType: int64
+		formatString: 0
+		lineageTag: 038200e6-8e77-4dfa-ab2e-1ea9a834c4df
+		summarizeBy: none
+		sourceColumn: CurrencyRateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyRateDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 409ee10f-59d2-4f17-a993-35fc6b9ba60f
+		summarizeBy: none
+		sourceColumn: CurrencyRateDate
+
+		variation Variation
+			isDefault
+			relationship: ed118eac-3302-4709-9e8c-6a35a9090c69
+			defaultHierarchy: LocalDateTable_608eb1d3-7c7c-4ea6-ae1b-c85bc5d51294.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FromCurrencyCode
+		dataType: string
+		lineageTag: 1c684ea2-a284-4780-91be-d92fd16d63a6
+		summarizeBy: none
+		sourceColumn: FromCurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ToCurrencyCode
+		dataType: string
+		lineageTag: ed16173b-95ef-45e9-8934-5dde1b09001b
+		summarizeBy: none
+		sourceColumn: ToCurrencyCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AverageRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b32fa6c8-7b5b-4930-af6d-a54c8c03d239
+		summarizeBy: sum
+		sourceColumn: AverageRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column EndOfDayRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a1384539-144f-4989-a62c-2b6e0127de2c
+		summarizeBy: sum
+		sourceColumn: EndOfDayRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3f3af959-0221-4ac0-8ea2-5db6f3ab487a
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: f3acf745-12e1-4dbb-8114-f3caae440b7c
+			defaultHierarchy: LocalDateTable_86cf1a18-db98-45fe-9741-cd53f6ea5f68.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales CurrencyRate' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_CurrencyRate = Source{[Schema="Sales",Item="CurrencyRate"]}[Data]
+				in
+				    Sales_CurrencyRate
+

@@ -1,0 +1,136 @@
+table 'Sales vPersonDemographics'
+	lineageTag: e553c62a-4aff-40cb-81a9-88109244fecf
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 92f49d0f-f111-4008-a8fc-a02e69054a8c
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalPurchaseYTD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1efc9c91-0e0d-49f3-9d70-df3f23fd4b55
+		summarizeBy: sum
+		sourceColumn: TotalPurchaseYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column DateFirstPurchase
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bcc91c7f-53b4-44f6-a2b2-4e5b171b2046
+		summarizeBy: none
+		sourceColumn: DateFirstPurchase
+
+		variation Variation
+			isDefault
+			relationship: a1b34c02-1ee5-408c-a0fc-dfca87717f95
+			defaultHierarchy: LocalDateTable_a173de7d-c73a-45e0-8ede-e97edeaac258.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dcdf44b5-1725-4b62-b61d-8a1ceff47c50
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		variation Variation
+			isDefault
+			relationship: 9fc0ed13-1cc4-4ca1-8dd8-d734f2853f6e
+			defaultHierarchy: LocalDateTable_774d61b4-c3da-41e1-a439-583cfd1b43f4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: e8ff10fb-5bbd-4c2c-8829-1dfbfe370512
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearlyIncome
+		dataType: string
+		lineageTag: 4d656c65-9c2a-4174-94e5-9061c3c73a75
+		summarizeBy: none
+		sourceColumn: YearlyIncome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 486b498e-ef36-4445-8216-f357b21cdc94
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalChildren
+		dataType: int64
+		formatString: 0
+		lineageTag: d6f0ff56-5743-4e13-b18e-d8afb25a2990
+		summarizeBy: sum
+		sourceColumn: TotalChildren
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberChildrenAtHome
+		dataType: int64
+		formatString: 0
+		lineageTag: 81300bb6-6dfd-41de-accc-08ca029acbb7
+		summarizeBy: sum
+		sourceColumn: NumberChildrenAtHome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: string
+		lineageTag: c73f78a9-ec81-45c4-9a74-afd3b245e6b8
+		summarizeBy: none
+		sourceColumn: Education
+
+		annotation SummarizationSetBy = Automatic
+
+	column Occupation
+		dataType: string
+		lineageTag: 63f30342-40b9-496a-a4b6-46d91e165f8a
+		summarizeBy: none
+		sourceColumn: Occupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column HomeOwnerFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a4a79e3a-59a8-458c-947b-4163a92a0c38
+		summarizeBy: none
+		sourceColumn: HomeOwnerFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberCarsOwned
+		dataType: int64
+		formatString: 0
+		lineageTag: 16709a67-bd8b-4dfd-ab87-b7b716218b6d
+		summarizeBy: sum
+		sourceColumn: NumberCarsOwned
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales vPersonDemographics' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_vPersonDemographics = Source{[Schema="Sales",Item="vPersonDemographics"]}[Data]
+				in
+				    Sales_vPersonDemographics
+

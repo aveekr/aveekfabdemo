@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "tabs": [
+      {
+        "id": "a221a1b9-3a95-418e-8db3-8c735494244b",
+        "title": "Tab",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "dataSourceId": "414b61a1-4c91-46d9-bdbe-9d754f804bd7"
+      }
+    ],
+    "dataSources": [
+      {
+        "type": "Fabric",
+        "id": "414b61a1-4c91-46d9-bdbe-9d754f804bd7",
+        "clusterUri": "",
+        "databaseItemId": "485b733d-26e7-b9c5-4fcb-45832c58a570",
+        "databaseItemName": "stockdata"
+      }
+    ]
+  }
+}

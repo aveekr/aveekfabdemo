@@ -1,0 +1,80 @@
+table 'Sales SalesTerritoryHistory'
+	lineageTag: ce71d608-1613-4453-b73f-7f408a0435f5
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 411dea20-c7e0-48b4-8d9c-10a5efc5ae29
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c347ec2-6391-4c75-8f79-d4af0db30dcf
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b4f4d444-573e-4b5d-b65c-00bac9f31155
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: c6c1f5e4-abcc-4643-b165-91bd21f59fc9
+			defaultHierarchy: LocalDateTable_77d4749b-f8b9-405f-9fee-0b2bc8cfe44d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7bd0bc77-2ae2-412d-91e9-c8371d79d3e3
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: 0ba42bf3-ef89-4196-836f-485d736b6247
+			defaultHierarchy: LocalDateTable_1c04b8e7-a7fc-4aee-99fe-9c5617232344.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: c5efbc3b-42c2-410d-b3a4-bf722aa6b1e1
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 40c1af06-ac0b-4de7-8692-3040d82cfa7e
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: f6cc768d-2c3b-4583-831a-5efd694ee70f
+			defaultHierarchy: LocalDateTable_305a974c-f15c-466d-a66d-fc3d3af8f9de.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTerritoryHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SalesTerritoryHistory = Source{[Schema="Sales",Item="SalesTerritoryHistory"]}[Data]
+				in
+				    Sales_SalesTerritoryHistory
+

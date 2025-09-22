@@ -1,0 +1,122 @@
+table productCatalog
+	lineageTag: 62afafc5-3ba4-448c-8922-15a40620e1a3
+	sourceLineageTag: 40071177-fb5c-4dfc-80bd-50235bed0294
+
+	column ProductID
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 2102b23c-2b8a-4710-98db-952783b31348
+		sourceLineageTag: a7d10490-0324-42fb-8562-840cd9010b80
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = User
+
+	column Name
+		dataType: string
+		lineageTag: a9779631-18de-4ef0-8352-5df4b7e85296
+		sourceLineageTag: 47d360a8-393b-4a03-8b42-6c9217cf8976
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = User
+
+	column ProductType
+		dataType: string
+		lineageTag: 269c41f0-e179-4d93-9633-be4b1b812ff2
+		sourceLineageTag: d6fac014-0516-44ec-93ef-6d3f58c62e02
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ProductType
+
+		annotation SummarizationSetBy = User
+
+	column TickerSymbol
+		dataType: string
+		lineageTag: 03891cd0-7ee2-49f5-8db1-30ac6eb17ce2
+		sourceLineageTag: 7a628120-dbed-4c49-b047-8c162910fe36
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TickerSymbol
+
+		annotation SummarizationSetBy = User
+
+	column Exchange
+		dataType: string
+		lineageTag: 6d3495f7-f53a-4775-a629-de5de787417e
+		sourceLineageTag: 706f422e-f6da-4a21-9fea-824c24282796
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Exchange
+
+		annotation SummarizationSetBy = User
+
+	column ISIN
+		dataType: string
+		lineageTag: 00ee5904-986c-4a3c-9400-9cefe244561f
+		sourceLineageTag: ad7c2ec3-7c36-42cf-932a-e124b161bdcd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ISIN
+
+		annotation SummarizationSetBy = User
+
+	column Sector
+		dataType: string
+		lineageTag: 038babfd-7d15-491a-b3d3-5c31262b6f46
+		sourceLineageTag: 82919504-ddb9-4bb4-98fe-1a61090367fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = User
+
+	column Industry
+		dataType: string
+		lineageTag: fba30980-334e-435a-aef6-43fab055c847
+		sourceLineageTag: c7e06471-8e51-429a-8b00-694fee75603e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = User
+
+	column RiskLevel
+		dataType: string
+		lineageTag: 7401b5be-3211-4522-abd9-8088513e2bd8
+		sourceLineageTag: 6af91cd0-7654-4c39-b3f6-a5db6e7c9dd7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RiskLevel
+
+		annotation SummarizationSetBy = User
+
+	column Currency
+		dataType: string
+		lineageTag: 6a17aefc-ac66-4ee4-a82b-edfa19863b56
+		sourceLineageTag: 74c3b8be-3257-439d-a64e-72cd85a8ebe3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = User
+
+	column LastUpdated
+		dataType: string
+		lineageTag: c23128ae-7ddb-408c-ba83-5e4ab28677f2
+		sourceLineageTag: 4c960ecf-c439-47cb-a6c9-746291a00350
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LastUpdated
+
+		annotation SummarizationSetBy = User
+
+	partition productCatalog = entity
+		mode: directQuery
+		source
+			entityName: productCatalog
+			expressionSource: 'DirectQuery to AS - customer360'
+

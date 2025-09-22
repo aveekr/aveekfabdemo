@@ -1,0 +1,68 @@
+table 'Sales SalesPersonQuotaHistory'
+	lineageTag: 08161e94-282d-4664-a6d3-ef450c110885
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 85c0cf9a-0bea-446e-97bc-79119331cb9c
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotaDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c6911b91-1995-4616-bb5b-ee6673a9933d
+		summarizeBy: none
+		sourceColumn: QuotaDate
+
+		variation Variation
+			isDefault
+			relationship: 0683a948-a334-45be-8e75-d896f6211be4
+			defaultHierarchy: LocalDateTable_4dfc1547-0eed-4830-8860-000428eeeab0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b0fc6c1f-17fc-4db4-9165-096c5599b413
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column rowguid
+		dataType: string
+		lineageTag: 7399ea49-a83f-494c-b226-0364b271315a
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 551638b5-dde3-4c8b-a612-1647605d64df
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 28ee7569-a0f1-4fd4-ac84-0c89edb3a904
+			defaultHierarchy: LocalDateTable_3f686c2a-6a1d-4350-a0bb-8cd64bbf8f7e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesPersonQuotaHistory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SalesPersonQuotaHistory = Source{[Schema="Sales",Item="SalesPersonQuotaHistory"]}[Data]
+				in
+				    Sales_SalesPersonQuotaHistory
+

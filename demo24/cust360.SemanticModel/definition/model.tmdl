@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectQuery to AS - customer360"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.553.0 (25.08)+9ad5b085e9f009bf544eb184334212fc69e3ffae
+
+annotation PBI_ProTooling = ["DaxCopilot_Change_Accepted_In_Desktop","DaxQueryView_Desktop","DevMode"]
+
+ref table productCatalog
+ref table riskProfile
+ref table customerinteractions
+ref table customerprofile
+ref table transactions
+
+ref cultureInfo en-US
+

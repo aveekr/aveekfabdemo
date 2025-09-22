@@ -1,0 +1,80 @@
+table 'Sales SalesTaxRate'
+	lineageTag: 832ef61e-f545-48ec-a111-990bf8d88638
+
+	column SalesTaxRateID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a6c1cbd-f3fe-45e2-9506-bc2a16991455
+		summarizeBy: count
+		sourceColumn: SalesTaxRateID
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvinceID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d771cac-8ac8-449d-a4ce-9ffb8764439a
+		summarizeBy: count
+		sourceColumn: StateProvinceID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxType
+		dataType: int64
+		formatString: 0
+		lineageTag: 72f1c39e-1d1e-44e4-a0bd-9039f6bc0246
+		summarizeBy: sum
+		sourceColumn: TaxType
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaxRate
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 67f05520-c875-4f82-b7c1-e7186e5f4e84
+		summarizeBy: sum
+		sourceColumn: TaxRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Name
+		dataType: string
+		lineageTag: f237184e-b0e8-4070-bc8a-c64dc1887e44
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column rowguid
+		dataType: string
+		lineageTag: 7974674a-7460-4c0a-af9d-43593e044606
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3db71995-0987-4845-b1f1-b8f174befd96
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 96edb593-78b9-4d1d-920d-a72501766503
+			defaultHierarchy: LocalDateTable_6a3b5212-c4d7-4067-afbb-d1268c89136b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesTaxRate' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SalesTaxRate = Source{[Schema="Sales",Item="SalesTaxRate"]}[Data]
+				in
+				    Sales_SalesTaxRate
+

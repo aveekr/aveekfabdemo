@@ -1,0 +1,44 @@
+table 'Sales PersonCreditCard'
+	lineageTag: 36982910-38d6-40ae-ac48-eb0fe4c6bd91
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: e70a8f58-5b4f-4f75-b39a-5faa8eb70030
+		summarizeBy: count
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditCardID
+		dataType: int64
+		formatString: 0
+		lineageTag: bdf2a3c3-d1cc-403a-af14-0b4bfb8454d7
+		summarizeBy: none
+		sourceColumn: CreditCardID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4e41e29b-74d7-4f63-a89e-839eb7299e1b
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 943dd69c-34dd-4689-9058-1b3c077f13db
+			defaultHierarchy: LocalDateTable_42c1d53c-f354-4e48-8b6e-da13aac9a75e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales PersonCreditCard' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_PersonCreditCard = Source{[Schema="Sales",Item="PersonCreditCard"]}[Data]
+				in
+				    Sales_PersonCreditCard
+

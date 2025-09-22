@@ -1,0 +1,107 @@
+table 'Sales SalesPerson'
+	lineageTag: c36eae91-c6e5-43bc-ae23-14e35ed4522a
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 75dd3e8f-6967-431a-9428-c801d7f96b09
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: d631e7ff-5b14-40dd-9a62-8fdab8c147e2
+		summarizeBy: count
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesQuota
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c67ecbf4-eaf5-4d98-a7b1-3400f2e8bc3b
+		summarizeBy: sum
+		sourceColumn: SalesQuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Bonus
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 7a98624c-dcd1-4942-9583-7f5ed2746065
+		summarizeBy: sum
+		sourceColumn: Bonus
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column CommissionPct
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: dcd89a6e-2aa9-4c0b-8e95-e5268859c569
+		summarizeBy: sum
+		sourceColumn: CommissionPct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesYTD
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 99ba2ac2-efe0-4199-87f9-42053136f117
+		summarizeBy: sum
+		sourceColumn: SalesYTD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesLastYear
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 718ff674-3aa3-4e5a-b01d-80b5f8ab8165
+		summarizeBy: sum
+		sourceColumn: SalesLastYear
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column rowguid
+		dataType: string
+		lineageTag: 6ad37161-d015-4897-881f-43a1f9e988c2
+		summarizeBy: none
+		sourceColumn: rowguid
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9bdf53c1-ccaa-441c-b420-1456fa046eb4
+		summarizeBy: none
+		sourceColumn: ModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 3a149a1f-9f4a-4b41-bdb7-80db6dd0a52d
+			defaultHierarchy: LocalDateTable_9372479d-e9fb-4cf2-80ee-c45a60b00105.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales SalesPerson' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VEIRFIK\MSSQLSERVER01", "AdventureWorks2016"),
+				    Sales_SalesPerson = Source{[Schema="Sales",Item="SalesPerson"]}[Data]
+				in
+				    Sales_SalesPerson
+

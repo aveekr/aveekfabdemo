@@ -1,0 +1,63 @@
+table riskProfile
+	lineageTag: b396a929-b30d-4a96-bafc-77a694b66e71
+	sourceLineageTag: [dbo].[riskProfile]
+
+	column RiskProfileID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5faf2b16-5b76-43bb-9540-bcae1264aadc
+		sourceLineageTag: RiskProfileID
+		summarizeBy: none
+		sourceColumn: RiskProfileID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f34d4ec4-24e8-4bbd-8e11-5260bcdc1f88
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskScore
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a25b90c3-d846-403e-ad84-af0472001301
+		sourceLineageTag: RiskScore
+		summarizeBy: none
+		sourceColumn: RiskScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskLevel
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5a789a88-eb7d-4812-96c7-123c4b300fef
+		sourceLineageTag: RiskLevel
+		summarizeBy: none
+		sourceColumn: RiskLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssessmentDate
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: aedf720d-05ca-44d0-8cb0-cf448be13e08
+		sourceLineageTag: AssessmentDate
+		summarizeBy: none
+		sourceColumn: AssessmentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition riskProfile = entity
+		mode: directLake
+		source
+			entityName: riskProfile
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
